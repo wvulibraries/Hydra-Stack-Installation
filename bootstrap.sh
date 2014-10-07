@@ -71,12 +71,13 @@ cd $HYDRA_STACK_DIR
 
 ################
 ## Upgrade MySQL
-# @TODO Secure root user
 
 /etc/init.d/mysqld restart
 
 cd $HYDRA_INSTALL_DIR
 mysql -u root < mysqlFedoraSetup.sql
+
+/usr/bin/mysqladmin -u root password 'password'
 
 ################
 # Fedora Install
