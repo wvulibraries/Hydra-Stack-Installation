@@ -41,13 +41,17 @@ rpm -ivh http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
 yum group install -y "Development Tools"
 
 yum -y install httpd httpd-devel httpd-manual httpd-tools
-yum -y install mysql-server mysql-connector-java mysql-connector-odbc
+yum -y install mysql-server
 yum -y install mod_auth_kerb mod_auth_mysql mod_authz_ldap mod_ssl mod_wsgi 
 yum -y install emacs emacs-common emacs-nox
 yum -y install git wget sqlite-devel expect
 yum -y install screen curl-devel openssl-devel readline-devel ruby-devel  tcl ImageMagick-devel nasm
 yum -y install libxml2-devel libxslt-devel libyaml-devel
 yum -y install java-1.7.0-openjdk-devel tomcat tomcat-admin-webapps tomcat-webapps
+
+# Fix Mysql
+touch /var/lib/mysql/mysql.sock
+chown mysql:mysql /var/lib/mysql/mysql.sock
 
 # Add the current user (root in vagrant) to the tomcat group
 usermod -G tomcat -a $USER
@@ -88,6 +92,12 @@ bash install_fedora.sh
 
 cd $HYDRA_INSTALL_DIR
 bash install_solr.sh
+
+###############
+# Install Redis
+
+cd $HYDRA_INSTALL_DIR
+bash install_redis.sh
 
 ##################################
 ## Make sure servers are started up
