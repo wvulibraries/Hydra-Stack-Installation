@@ -38,7 +38,7 @@ rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noar
 # MySQL Repo
 rpm -ivh http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
 
-yum group install -y "Development Tools"
+yum groupinstall -y "Development Tools"
 
 yum -y install httpd httpd-devel httpd-manual httpd-tools
 yum -y install mysql-server
