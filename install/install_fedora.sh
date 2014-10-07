@@ -7,8 +7,7 @@ if [ "$EUID" -ne "0" ] ; then
 fi
 
 # set environment variables for fedora
-grep -q '^FEDORA_HOME=' /etc/environment || echo "FEDORA_HOME=$FEDORA_INSTALL_DIR" | sudo tee -a /etc/environment
-echo 'PATH=$PATH:$FEDORA_HOME/server/bin:$FEDORA_HOME/client/bin' | sudo tee -a /etc/profile.d/fedora.sh
+echo 'PATH=$PATH:$FEDORA_HOME/server/bin:$FEDORA_HOME/client/bin' | tee -a /etc/profile.d/fedora.sh
 source /etc/environment
 source /etc/profile.d/fedora.sh
 
