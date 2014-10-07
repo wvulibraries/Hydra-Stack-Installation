@@ -6,6 +6,11 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+  # Increase the memory
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 1024
+  end
+
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "centos6.4"
 
