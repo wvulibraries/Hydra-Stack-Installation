@@ -21,6 +21,7 @@ echo "RAILS_ENV=production" | tee -a /etc/environment
 echo "HYDRA_STACK_DIR=$HYDRA_STACK_DIR" | tee -a /etc/environment
 echo "HYDRA_INSTALL_DIR=$HYDRA_INSTALL_DIR" | tee -a /etc/environment
 echo "FEDORA_INSTALL_DIR=$FEDORA_INSTALL_DIR" | tee -a /etc/environment
+echo "FEDORA_HOME=$FEDORA_INSTALL_DIR" | tee -a /etc/environment
 echo "SOLR_INSTALL_DIR=$SOLR_INSTALL_DIR" | tee -a /etc/environment
 
 source /etc/environment
