@@ -104,10 +104,10 @@ bash install_redis.sh
 ##################################
 ## Make sure servers are started up
 
-/etc/init.d/httpd start
+/etc/init.d/httpd restart
 chkconfig httpd on
 
-/etc/init.d/tomcat start
+/etc/init.d/tomcat restart
 chkconfig tomcat on
 
 chkconfig mysqld on
