@@ -38,30 +38,16 @@ yum groupinstall -y "Development Tools"
 yum -y install httpd httpd-devel httpd-manual httpd-tools
 yum -y install mod_auth_kerb mod_auth_mysql mod_authz_ldap mod_ssl mod_wsgi 
 yum -y install emacs emacs-common emacs-nox
+yum -y install git wget
 
+cd $HYDRA_INSTALL_DIR
+bash install_rpms.sh
 
 #####################
 ## Begin Ruby Install
 
 cd $HYDRA_INSTALL_DIR
-wget -q $RUBY_URL
-tar -zxvf $RUBY_FILE
-cd $RUBY_BASENAME
-./configure
-make
-make install
-
-cd $HYDRA_STACK_DIR
-
-################
-## Upgrade MySQL
-
-/etc/init.d/mysqld restart
-
-cd $HYDRA_INSTALL_DIR
-mysql -u root < mysqlFedoraSetup.sql
-
-/usr/bin/mysqladmin -u root password 'password'
+bash install_ruby.sh
 
 ################
 # Fedora Install
