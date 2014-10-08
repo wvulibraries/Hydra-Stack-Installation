@@ -37,10 +37,10 @@ cp /vagrant/install/* $HYDRA_INSTALL_DIR
 
 yum groupinstall -y "Development Tools"
 
-yum -y install httpd httpd-devel httpd-manual httpd-tools
-yum -y install mod_auth_kerb mod_auth_mysql mod_authz_ldap mod_ssl mod_wsgi 
-yum -y install emacs emacs-common emacs-nox
-yum -y install git wget
+yum -y install httpd httpd-devel httpd-manual httpd-tools \
+mod_auth_kerb mod_auth_mysql mod_authz_ldap mod_ssl mod_wsgi \
+install emacs emacs-common emacs-nox \
+git wget \
 
 cd $HYDRA_INSTALL_DIR
 bash install_rpms.sh
