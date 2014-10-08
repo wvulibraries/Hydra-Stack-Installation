@@ -21,6 +21,10 @@ echo "HYDRA_INSTALL_DIR=$HYDRA_INSTALL_DIR" | tee -a /etc/environment
 echo "FEDORA_INSTALL_DIR=$FEDORA_INSTALL_DIR" | tee -a /etc/environment
 echo "FEDORA_HOME=$FEDORA_INSTALL_DIR" | tee -a /etc/environment
 echo "SOLR_INSTALL_DIR=$SOLR_INSTALL_DIR" | tee -a /etc/environment
+echo "RUBY_BASENAME=$RUBY_BASENAME" | tee -a /etc/environment
+echo "RUBY_FILE=$RUBY_FILE" | tee -a /etc/environment
+echo "RUBY_URL=$RUBY_URL" | tee -a /etc/environment
+
 
 # If /usr/local/bin isn't in our path, add it globally. 
 if
