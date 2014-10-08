@@ -38,9 +38,6 @@ yum groupinstall -y "Development Tools"
 yum -y install httpd httpd-devel httpd-manual httpd-tools
 yum -y install mod_auth_kerb mod_auth_mysql mod_authz_ldap mod_ssl mod_wsgi 
 yum -y install emacs emacs-common emacs-nox
-# Fix Mysql
-touch /var/lib/mysql/mysql.sock
-chown mysql:mysql /var/lib/mysql/mysql.sock
 
 
 #####################
