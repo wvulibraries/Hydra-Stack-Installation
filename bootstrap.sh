@@ -13,6 +13,8 @@ RUBY_BASENAME="ruby-2.1.3"
 RUBY_FILE="$RUBY_BASENAME.tar.gz"
 RUBY_URL="http://cache.ruby-lang.org/pub/ruby/2.1/$RUBY_FILE"
 
+export RUBY_FILE RUBY_URL RUBY_BASENAME
+
 # Env setup
 
 echo "HYDRA_NAME=demo" | tee -a /etc/environment
