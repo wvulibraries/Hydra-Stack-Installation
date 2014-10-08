@@ -10,7 +10,7 @@ fi
 source /etc/environment
 export FEDORA_INSTALL_DIR
 export HYDRA_INSTALL_DIR
-echo "PATH=$PATH:$FEDORA_HOME/server/bin:$FEDORA_HOME/client/bin" | tee -a /etc/profile.d/fedora.sh
+echo "PATH=\$PATH:$FEDORA_HOME/server/bin:$FEDORA_HOME/client/bin" | tee -a /etc/profile.d/fedora.sh
 source /etc/profile.d/fedora.sh
 
 # check the output of "echo $PATH"
