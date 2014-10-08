@@ -15,15 +15,28 @@ screen curl-devel openssl-devel readline-devel ruby-devel  tcl ImageMagick-devel
 libxml2-devel libxslt-devel libyaml-devel \
 java-1.7.0-openjdk-devel tomcat tomcat-admin-webapps tomcat-webapps \
 
+###############
+## Tomcat Setup
+
 # Add the current user (root in vagrant) to the tomcat group
 usermod -G tomcat -a $USER
+
+# Start tomcat
+/etc/init.d/tomcat restart
+
+#ensure that tomcat starts at boot
+chkconfig tomcat on
 
 ################
 ## Setup MySQL
 
+# Start Mysql
 /etc/init.d/mysqld restart
 
+# ensure that mysql starts at boot
+chkconfig mysqld on
+
 cd $HYDRA_INSTALL_DIR
-mysql -u root < mysqlFedoraSetup.sql
+mysql -u root < mysqlFedora3Setup.sql
 
 /usr/bin/mysqladmin -u root password 'password'
