@@ -33,29 +33,15 @@ cp /vagrant/install/* $HYDRA_INSTALL_DIR
 
 # Base Yum Installs
 
-# EPEL Repo
-rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-
-# MySQL Repo
-rpm -ivh http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
-
 yum groupinstall -y "Development Tools"
 
 yum -y install httpd httpd-devel httpd-manual httpd-tools
-yum -y install mysql-server
 yum -y install mod_auth_kerb mod_auth_mysql mod_authz_ldap mod_ssl mod_wsgi 
 yum -y install emacs emacs-common emacs-nox
-yum -y install git wget sqlite-devel expect
-yum -y install screen curl-devel openssl-devel readline-devel ruby-devel  tcl ImageMagick-devel nasm
-yum -y install libxml2-devel libxslt-devel libyaml-devel
-yum -y install java-1.7.0-openjdk-devel tomcat tomcat-admin-webapps tomcat-webapps
-
 # Fix Mysql
 touch /var/lib/mysql/mysql.sock
 chown mysql:mysql /var/lib/mysql/mysql.sock
 
-# Add the current user (root in vagrant) to the tomcat group
-usermod -G tomcat -a $USER
 
 #####################
 ## Begin Ruby Install
