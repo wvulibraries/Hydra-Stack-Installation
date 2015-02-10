@@ -5,9 +5,9 @@
 # base
 # mysql
 # tomcat
-# redis
 # fedora
 # solr
+# redis
 # httpd
 # ruby
 # passenger
