@@ -19,7 +19,10 @@ if [ "$EUID" -ne "0" ] ; then
         exit 1
 fi
 
-# @TODO : we need to check that a single argument was passed in
+if [ -z "$1" ] ; then
+    echo "Must provide an install argument."
+    exit 1
+fi
 
 # make sure the install scripts are executable
 chmod u+x install/*
