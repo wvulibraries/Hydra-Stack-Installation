@@ -85,6 +85,11 @@ install_httpd() {
 	install/install_httpd.sh
 }
 
+install_rails() {
+	echo "Installing Rails."
+	install/install_rails.sh
+}
+
 # ## determine install type
 
 # If we are installing the environment, do it
