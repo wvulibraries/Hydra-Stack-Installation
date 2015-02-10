@@ -9,6 +9,7 @@ fi
 gem install passenger
 expect /opt/hydraStack/install/install_passenger.exp
 
+touch /etc/httpd/conf.d/passenger.conf
 cat /etc/httpd/conf.d/passenger.conf <<EOF
    LoadModule passenger_module /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.53/buildout/apache2/mod_passenger.so
    <IfModule mod_passenger.c>
@@ -17,6 +18,7 @@ cat /etc/httpd/conf.d/passenger.conf <<EOF
    </IfModule>
 EOF
 
+touch /etc/httpd/virtualHosts/website.passenger.conf
 cat /etc/httpd/virtualHosts/website.passenger.conf <<EOF
 
    <VirtualHost *:80>
