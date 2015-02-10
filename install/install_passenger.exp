@@ -1,0 +1,14 @@
+#!/usr/bin/expect -f
+set timeout 180
+spawn passenger-install-apache2-module
+expect "*Press Enter to continue, or Ctrl-C to abort*\r\n$"
+send -- "\r"
+expect "*"
+expect "*Meteor$"
+send -- "\r"
+expect "*"
+expect "*Press ENTER to continue.\n$"
+send -- "\r"
+expect "*"
+expect eof
+

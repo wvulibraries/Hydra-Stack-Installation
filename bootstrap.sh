@@ -55,6 +55,12 @@ bash install_solr.sh
 cd $HYDRA_INSTALL_DIR
 bash install_redis.sh
 
+###################
+# Install Passenger
+
+cd $HYDRA_INSTALL_DIR
+bash install_passenger.sh
+
 ##################################
 ## Make sure servers are started up
 
