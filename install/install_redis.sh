@@ -37,7 +37,7 @@ cat utils/redis_init_script >> /etc/init.d/redis_6379
 chmod a+x /etc/init.d/redis_6379
 
 # add to init
-chkconfig redis_6379 on
+/usr/sbin/chkconfig redis_6379 on
 
 # create the config file
 cp redis.conf /etc/redis/6379.conf
@@ -48,4 +48,5 @@ sed 's#^\(pidfile\ /var/run/\).*$#\1redis_6379.pid#' -i /etc/redis/6379.conf
 sed 's/^\(loglevel\ \)verbose.*$/\1notice/' -i /etc/redis/6379.conf
 sed 's#^\(dir\ \).*$#\1/var/redis/6379#' -i /etc/redis/6379.conf
 
-service redis_6379 start
+/usr/sbin/chkconfig redis_6379 on
+/etc/init.d/redis_6379 start

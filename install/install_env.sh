@@ -31,21 +31,9 @@ echo "RUBY_FILE=$RUBY_FILE" | tee -a /etc/environment
 echo "RUBY_URL=$RUBY_URL" | tee -a /etc/environment
 
 
-# If /usr/local/bin isn't in our path, add it globally. 
-if
-	[[ $(echo $PATH) == *usr/local/bin* ]]
-then	
-	echo "PATH=\$PATH:/usr/local/bin" | tee -a /etc/environment
-fi
+# ensure that we have the 2 global bins in the path
+echo "PATH=/usr/local/bin:/usr/bin" | tee -a /etc/environment
 
 # Export the ENV Variables
 export HYDRA_STACK_DIR HYDRA_INSTALL_DIR FEDORA_INSTALL_DIR SOLR_INSTALL_DIR
 export RUBY_FILE RUBY_URL RUBY_BASENAME
-
-# Create the Hydra Install Directory
-mkdir -p $HYDRA_INSTALL_DIR
-
-# Setup apache virtual hosts directory
-mkdir -p /etc/httpd/virtualHosts/
-echo "NameVirtualHost *:80" | tee -a /etc/http/conf/httpd.conf
-echo "Include virtualHosts/*.conf" | tee -a /etc/http/conf/httpd.conf

@@ -47,3 +47,6 @@ wget -q -c http://sourceforge.net/projects/fedora-commons/files/fedora/3.6.2/fcr
 expect $HYDRA_INSTALL_DIR/install_fedora.exp
 
 chown -R tomcat:tomcat $FEDORA_INSTALL_DIR
+
+# TODO "hostname should be pulled from env"
+echo "Test installation at http://hostname:8080/fedora/"

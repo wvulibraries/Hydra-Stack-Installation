@@ -58,4 +58,7 @@ chown -R tomcat:tomcat $SOLR_INSTALL_DIR
 ln -sf $SOLR_INSTALL_DIR/$HYDRA_NAME/$HYDRA_NAME.xml /etc/tomcat/Catalina/localhost/$HYDRA_NAME.xml
 
 # restart tomcat
-service tomcat restart
+systemctl restart tomcat
+
+# TODO "hostname should be pulled from env"
+echo "Test installation at http://hostname:8080/$HYDRA_NAME/"
