@@ -10,6 +10,7 @@
 # redis
 # httpd
 # ruby
+# rails 
 # passenger
 
 # Check to make sure we are the root user
@@ -17,6 +18,8 @@ if [ "$EUID" -ne "0" ] ; then
         echo "Script must be run as root." >&2
         exit 1
 fi
+
+# @TODO : we need to check that a single argument was passed in
 
 # make sure the install scripts are executable
 chmod u+x install/*
@@ -29,6 +32,7 @@ yum clean all -y
 TYPE=`echo | awk -v str=$1 '{print tolower(str)}'`
 
 # ## Installation Functions
+# @TODO : this can be condensed into a single function
 install_env(){
 	echo "Installing environment."
 	install/install_env.sh
@@ -118,6 +122,9 @@ then
 elif [ $TYPE == 'ruby' ]
 then
 	install_ruby
+elif [ $TYPE == 'rails' ]
+then
+	install_rails
 elif [ $TYPE == 'mysql' ]
 then
 	install_mysql
