@@ -38,7 +38,7 @@ TYPE=`echo | awk -v str=$1 '{print tolower(str)}'`
 
 install() {
 
-	SCRIPT="install/install_$2.sh"
+	SCRIPT="install/install_$1.sh"
 
 	#check if the file exists
 	if [ ! -f $SCRIPT ]; then
@@ -46,7 +46,10 @@ install() {
     	exit 1
 	fi
 	
-	echo $1
+	echo
+	echo "Installing $1"
+	echo
+
 	$SCRIPT
 }
 
@@ -54,13 +57,13 @@ install() {
 
 # If we are installing the environment, do it
 # Otherwise we source it. 
-if [ $TYPE == "env" ] 
+if [ $TYPE != "env" ] 
 then
-	install "Installing environment." "env"
-else
 	source /etc/environment
-	install "Installing $TYPE" "$TYPE"
 fi
 
+install $TYPE
+
+echo 
 echo "Done. ($TYPE)"
 
