@@ -32,66 +32,19 @@ yum clean all -y
 TYPE=`echo | awk -v str=$1 '{print tolower(str)}'`
 
 # ## Installation Functions
-# @TODO : this can be condensed into a single function
-install_env(){
-	echo "Installing environment."
-	install/install_env.sh
-}
 
-install_base() {
-	echo "Installing Base."
-	install/install_base.sh
-}
+install() {
 
-install_fedora() {
-	echo "Installing Fedora."
-	install/install_fedora.sh
-}
+	SCRIPT="install/install_$2.sh"
 
-install_solr() {
-	echo "Installing Solr."
-	install/install_solr.sh
-}
-
-install_ruby() {
-	echo "Installing Ruby."
-	install/install_ruby.sh
-}
-
-install_mysql() {
-	echo "Installing MySQL."
-	install/install_mysql.sh
-
-}
-
-install_tomcat() {
-
-	echo "Installing Tomcat"
-	install/install_tomcat.sh
-}
-
-install_redis() {
-
-	echo "Installing Redis"
-	install/install_redis.sh
-
-}
-
-install_passenger() {
-
-	echo "Installing Passanger"
-	install/install_passenger.sh
-
-}
-
-install_httpd() {
-	echo "Installing Apache."
-	install/install_httpd.sh
-}
-
-install_rails() {
-	echo "Installing Rails."
-	install/install_rails.sh
+	#check if the file exists
+	if [ ! -f $SCRIPT ]; then
+    	echo "Install script not found!"
+    	exit 1
+	fi
+	
+	echo $1
+	$SCRIPT
 }
 
 # ## determine install type
@@ -100,46 +53,10 @@ install_rails() {
 # Otherwise we source it. 
 if [ $TYPE == "env" ] 
 then
-	install_env
+	install "Installing environment." "env"
 else
 	source /etc/environment
-fi
-
-
-
-if [ $TYPE == 'base' ]
-then
-
-	install_base
-
-elif [ $TYPE == 'fedora' ]
-then
-	install_fedora
-
-elif [ $TYPE == 'solr' ]
-then
-	install_solr
-elif [ $TYPE == 'ruby' ]
-then
-	install_ruby
-elif [ $TYPE == 'rails' ]
-then
-	install_rails
-elif [ $TYPE == 'mysql' ]
-then
-	install_mysql
-elif [ $TYPE == 'tomcat' ]
-then
-	install_tomcat
-elif [ $TYPE == 'redis' ]
-then
-	install_redis
-elif [ $TYPE == 'passenger' ]
-then
-	install_passenger
-elif [ $TYPE == 'httpd' ]
-then
-	install_httpd
+	install "Installing $TYPE" "$TYPE"
 fi
 
 echo "Done. ($TYPE)"
