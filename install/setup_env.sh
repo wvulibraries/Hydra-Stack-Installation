@@ -45,7 +45,4 @@ export RUBY_FILE RUBY_URL RUBY_BASENAME
 # Create the Hydra Install Directory
 mkdir -p $HYDRA_INSTALL_DIR
 
-# Setup apache virtual hosts directory
-mkdir -p /etc/httpd/virtualHosts/
-echo "NameVirtualHost *:80" | tee -a /etc/http/conf/httpd.conf
-echo "Include virtualHosts/*.conf" | tee -a /etc/http/conf/httpd.conf
+

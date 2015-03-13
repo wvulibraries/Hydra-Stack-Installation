@@ -1,6 +1,7 @@
 #!/bin/bash
 
-yum -y install mysql-server mysql-community-devel
+rpm -Uvh http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+yum -y install mysql-community-server mysql-community-client mysql-community-devel mysql-community-common mysql-community-libs mysql-community-release
 
 echo "Setting Up MySQL."
 
