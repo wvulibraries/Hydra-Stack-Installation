@@ -8,6 +8,7 @@ The scripts are provided by, or based on, Data Curation Experts' scripts and doc
 These scripts can be used separately to install a working Hydra Stack. 
 
 A full stack should follow this path:
+
 1. env
 1. base
 1. mysql
