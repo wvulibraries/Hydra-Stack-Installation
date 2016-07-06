@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# install_env is for use on the CentOS 7 server installs. 
+# install_env is for use on the CentOS 7 server installs.
 # setup_env is for use in the vagrant installation
 #
-# Eventually these should be merged into a single script. 
+# Eventually these should be merged into a single script.
 
 # Variables
 HYDRA_STACK_DIR="/opt/hydraStack"
@@ -13,9 +13,9 @@ HYDRA_INSTALL_DIR="$HYDRA_STACK_DIR/install"
 FEDORA_INSTALL_DIR="$HYDRA_STACK_DIR/fedora"
 SOLR_INSTALL_DIR="$HYDRA_STACK_DIR/solr"
 
-RUBY_BASENAME="ruby-2.1.3"
+RUBY_BASENAME="ruby-2.2.5"
 RUBY_FILE="$RUBY_BASENAME.tar.gz"
-RUBY_URL="http://cache.ruby-lang.org/pub/ruby/2.1/$RUBY_FILE"
+RUBY_URL="http://cache.ruby-lang.org/pub/ruby/2.2/$RUBY_FILE"
 
 # Env setup
 echo "HYDRA_NAME=demo" | tee -a /etc/environment
